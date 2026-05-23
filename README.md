@@ -194,6 +194,8 @@ Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận 
 ## 📦 Deliverables
 
 - [x] `03_analysis.sql` — EDA, VIEW RFM, Cohort Retention
+- [x] Dataset gốc: [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) — Kaggle, License: Apache 2.0 
+8 bảng, 44 cột: orders, customers, products, order_items, suppliers, reviews, payments, shipments
 - [x] Power BI Dashboard (5 trang): Summary · Overview · Customer Behavior · RFM & Retention · Operations
 - [x] PDF export dashboard (`reports/`)
 - [x] README với full insights & recommendations

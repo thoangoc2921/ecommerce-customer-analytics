@@ -31,7 +31,7 @@ Kết quả: xác định **$8M+ doanh thu có thể phục hồi** từ nhóm A
 | **Data scope** | Tháng 11/2023 – Tháng 11/2024 (~13 tháng) |
 | **Dataset** | 8 bảng, 44 cột: `customers`, `orders`, `order_items`, `products`, `payment`, `shipments`, `reviews`, `suppliers` |
 | **SQL** | MySQL — EDA, data cleaning, VIEW-based modeling, RFM scoring, Cohort analysis |
-| **Visualization** | Power BI Desktop — DAX measures, Power Query, dashboard 5 trang |
+| **Visualization** | Power BI Desktop — DAX measures, Power Query, dashboard 6 trang |
 | **Phương pháp** | RFM Segmentation (NTILE), Cohort Retention Matrix, Order Fulfillment Funnel |
 
 ---
@@ -84,7 +84,7 @@ Raw Data
 Power BI
     Import 3 VIEWs từ MySQL
     Xây dựng DAX measures: Approval Rate, YoY, Churn %
-    Dashboard 5 trang: Summary · Overview · Customer Behavior · RFM & Retention · Operations
+    Dashboard 6 trang: Summary · Overview · Customer Behavior · RFM & Retention · Product Performance · Operations
         │
         ▼
 Insights & Recommendations
@@ -219,7 +219,7 @@ Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận 
 - ✅ `queries/02_cleaning.sql` — Chuẩn hóa & làm sạch: TRIM, CAST, COALESCE
 - ✅ `queries/03_analysis.sql` — EDA tổng hợp, VIEW RFM, Cohort Retention
 - 📎 Dataset gốc: [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) — Kaggle, License: Apache 2.0 | 8 bảng, 44 cột
-- ✅ Power BI Dashboard (5 trang): Summary · Overview · Customer Behavior · RFM & Retention · Operations
+- ✅ Power BI Dashboard (6 trang): Summary · Overview · Customer Behavior · RFM & Retention · Product Performance · Operations
 - ✅ `reports/E-Commerce_Sales_Customer_Analytics.pdf` — Export dashboard
 - ✅ README với full insights & recommendations
 
@@ -239,7 +239,10 @@ Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận 
 ### Trang 4 — RFM & Retention
 ![RFM & Retention](visuals/rfm_retention_page.png)
 
-### Trang 5 — Operations
+### Trang 5 — Product Performance
+![Product Performance](visuals/product_performance_page.png)
+
+### Trang 6 — Operations
 ![Operations](visuals/operations_page.png)
 
 ---

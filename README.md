@@ -5,22 +5,22 @@
 
 ## 1. Project Overview
 
-Một nền tảng thương mại điện tử ghi nhận **10.000 khách hàng**, **15.000 đơn hàng** và **tổng doanh thu ~$42.5M** trong 13 tháng (11/2023 – 11/2024) — nhưng ẩn sau con số doanh thu ổn định là một vấn đề nghiêm trọng: **hơn 65% khách hàng không quay lại sau 90 ngày**, và phần lớn doanh thu ($31.2M) đang đến từ các nhóm khách hàng đang dần rời đi thay vì nhóm trung thành bền vững.
+Một nền tảng thương mại điện tử ghi nhận **10.000 khách hàng**, **15.000 đơn hàng** và **tổng doanh thu ~$42.5M** trong 13 tháng (11/2023 – 11/2024). Tuy nhiên, phía sau con số doanh thu ổn định lại là một vấn đề nghiêm trọng: **hơn 65% khách hàng không quay lại sau 90 ngày**, và phần lớn doanh thu ($31.2M) đang đến từ các nhóm khách hàng đang dần rời đi thay vì nhóm trung thành bền vững.
 
-Project áp dụng **RFM Segmentation, Cohort Retention Analysis và Operational Funnel** để trả lời: *Tại sao khách hàng không quay lại? Nhóm nào tạo ra giá trị cao nhất? Và đâu là điểm nghẽn vận hành đang làm mất doanh thu tiềm năng?*
+Project áp dụng **RFM Segmentation, Cohort Retention Analysis và Operational Funnel** để trả lời: *Tại sao khách hàng không quay lại? hững nhóm khách hàng nào mang lại giá trị cao nhất? Và đâu là những nút thắt về vận hành gây ra nguy cơ mất doanh thu tiềm năng?*
 
-Kết quả: xác định **$8M+ doanh thu có thể phục hồi** từ nhóm At Risk, phát hiện **20% đơn hàng thất bại ngay ở bước thanh toán**, và đề xuất bộ action cụ thể theo từng phân khúc khách hàng.
+Kết quả: xác định **$8M+ doanh thu có thể phục hồi** từ nhóm khách hàng có nguy cơ rời đi, phát hiện **20% đơn hàng thất bại ngay ở bước thanh toán**, và đề xuất các kế hoạch hành động cụ thể phù hợp với từng phân khúc khách hàng.
 
 ---
 
 ## 2. Objectives
 
-1. **Xác định xu hướng doanh thu** theo thời gian và danh mục sản phẩm dẫn đầu — liệu tăng trưởng có đến từ danh mục đúng không?
-2. **Đo lường và định nghĩa churn** bằng ngưỡng 90 ngày, phân loại toàn bộ khách hàng thành Active / Churned.
-3. **Phân khúc khách hàng theo RFM** để xác định ai đang tạo giá trị, ai đang rời đi — và ưu tiên nguồn lực theo đúng nhóm.
-4. **Đánh giá Cohort Retention theo tháng gia nhập** — tỷ lệ quay lại có cải thiện theo thời gian không, hay vấn đề mang tính hệ thống?
-5. **Phân tích phễu vận hành** (payment → shipment → delivered) — mất bao nhiêu % doanh thu ở mỗi bước?
-6. **Đưa ra khuyến nghị hành động** có thể thực thi ngay, gắn với từng phân khúc và từng điểm nghẽn cụ thể.
+1. **Xác định xu hướng doanh thu** theo thời gian và theo danh mục sản phẩm để xác định xem tăng trưởng có đến từ đúng các danh mục hay không?
+2. **Định nghĩa và đo lường tỷ lệ khách hàng rời bỏ** bằng ngưỡng 90 ngày, phân loại tất cả khách hàng thành nhóm Khách hàng đang hoạt động hoặc Khách hàng đã rời bỏ.
+3. **Thực hiện phân khúc RFM** để xác định khách hàng nào tạo ra giá trị cao nhất và khách hàng nào có nguy cơ rời bỏ, cho phép phân bổ nguồn lực tốt hơn giữa các nhóm khách hàng.
+4. **Tiến hành phân tích tỷ lệ giữ chân khách hàng theo nhóm dựa trên tháng mua hàng đầu tiên** để đánh giá xem tỷ lệ giữ chân có được cải thiện theo thời gian hay vấn đề là do hệ thống?
+5. **Phân tích quy trình vận hành** (Thanh toán → Vận chuyển → Giao hàng) để xác định tỷ lệ doanh thu bị mất ở mỗi giai đoạn?
+6. **Đưa ra các khuyến nghị khả thi** được điều chỉnh phù hợp với từng phân khúc khách hàng và các điểm nghẽn vận hành cụ thể để triển khai ngay lập tức.
 
 ---
 

@@ -5,34 +5,34 @@
 
 ## 1. Project Overview
 
-Một nền tảng thương mại điện tử ghi nhận **10.000 khách hàng**, **15.000 đơn hàng** và **tổng doanh thu ~$42.5M** trong 13 tháng (11/2023 – 11/2024). Tuy nhiên, phía sau con số doanh thu ổn định lại là một vấn đề nghiêm trọng: **hơn 65% khách hàng không quay lại sau 90 ngày**, và phần lớn doanh thu ($31.2M) đang đến từ các nhóm khách hàng đang dần rời đi thay vì nhóm trung thành bền vững.
+An e-commerce platform recorded **10,000 customers**, **15,000 orders**, and **total revenue of approximately $42.5M** over 13 months (November 2023 to November 2024). However, behind the stable revenue figures lies a critical problem: **more than 65% of customers did not return within 90 days**, and the majority of revenue ($31.2M) is coming from customer groups that are gradually leaving rather than a sustainable loyal base.
 
-Project áp dụng **RFM Segmentation, Cohort Retention Analysis và Operational Funnel** để trả lời: *Tại sao khách hàng không quay lại? hững nhóm khách hàng nào mang lại giá trị cao nhất? Và đâu là những nút thắt về vận hành gây ra nguy cơ mất doanh thu tiềm năng?*
+This project applies **RFM Segmentation, Cohort Retention Analysis, and an Operational Funnel** to answer: *Why are customers not coming back? Which customer groups generate the highest value? And where are the operational bottlenecks creating the risk of losing potential revenue?*
 
-Kết quả: xác định **$8M+ doanh thu có thể phục hồi** từ nhóm khách hàng có nguy cơ rời đi, phát hiện **20% đơn hàng thất bại ngay ở bước thanh toán**, và đề xuất các kế hoạch hành động cụ thể phù hợp với từng phân khúc khách hàng.
+The results identify **$8M+ in recoverable revenue** from at-risk customer groups, reveal that **20% of orders fail at the payment step**, and propose concrete action plans tailored to each customer segment.
 
 ---
 
 ## 2. Objectives
 
-1. **Xác định xu hướng doanh thu** theo thời gian và theo danh mục sản phẩm để xác định xem tăng trưởng có đến từ đúng các danh mục hay không?
-2. **Định nghĩa và đo lường tỷ lệ khách hàng rời bỏ** bằng ngưỡng 90 ngày, phân loại tất cả khách hàng thành nhóm Khách hàng đang hoạt động hoặc Khách hàng đã rời bỏ.
-3. **Thực hiện phân khúc RFM** để xác định khách hàng nào tạo ra giá trị cao nhất và khách hàng nào có nguy cơ rời bỏ, cho phép phân bổ nguồn lực tốt hơn giữa các nhóm khách hàng.
-4. **Tiến hành phân tích tỷ lệ giữ chân khách hàng theo nhóm dựa trên tháng mua hàng đầu tiên** để đánh giá xem tỷ lệ giữ chân có được cải thiện theo thời gian hay vấn đề là do hệ thống?
-5. **Phân tích quy trình vận hành** (Thanh toán → Vận chuyển → Giao hàng) để xác định tỷ lệ doanh thu bị mất ở mỗi giai đoạn?
-6. **Đưa ra các khuyến nghị khả thi** được điều chỉnh phù hợp với từng phân khúc khách hàng và các điểm nghẽn vận hành cụ thể để triển khai ngay lập tức.
+1. **Identify revenue trends** over time and by product category to determine whether growth is coming from the right categories.
+2. **Define and measure customer churn rate** using a 90-day threshold, classifying all customers as either Active or Churned (customers who have not returned within the defined inactivity window).
+3. **Perform RFM Segmentation** to identify which customers generate the highest value and which are at risk of leaving, enabling better resource allocation across customer groups.
+4. **Conduct cohort-based retention analysis by first purchase month** to assess whether retention rates are improving over time or whether the problem is structural.
+5. **Analyze the operational funnel** (Payment, Shipping, and Delivery) to identify the proportion of revenue lost at each stage.
+6. **Provide actionable recommendations** tailored to each customer segment and specific operational bottlenecks for immediate implementation.
 
 ---
 
 ## 3. Project Scope & Tools
 
-| Thành phần | Chi tiết |
+| Component | Details |
 |---|---|
-| **Data scope** | Tháng 11/2023 – Tháng 11/2024 (~13 tháng) |
-| **Dataset** | 8 bảng, 44 cột: `customers`, `orders`, `order_items`, `products`, `payment`, `shipments`, `reviews`, `suppliers` |
-| **SQL** | MySQL — EDA, data cleaning, VIEW-based modeling, RFM scoring, Cohort analysis |
-| **Visualization** | Power BI Desktop — DAX measures, Power Query, dashboard 6 trang |
-| **Phương pháp** | RFM Segmentation (NTILE), Cohort Retention Matrix, Order Fulfillment Funnel |
+| **Data scope** | November 2023 to November 2024 (approximately 13 months) |
+| **Dataset** | 8 tables, 44 columns: `customers`, `orders`, `order_items`, `products`, `payment`, `shipments`, `reviews`, `suppliers` |
+| **SQL** | MySQL, covering EDA, data cleaning, VIEW-based modeling, RFM scoring, and Cohort analysis |
+| **Visualization** | Power BI Desktop, including DAX measures, Power Query, and a 6-page dashboard |
+| **Methods** | RFM Segmentation (NTILE), Cohort Retention Matrix, Order Fulfillment Funnel |
 
 ---
 
@@ -41,13 +41,13 @@ Kết quả: xác định **$8M+ doanh thu có thể phục hồi** từ nhóm k
 ```
 ecommerce-customer-analytics/
 ├── queries/
-│   ├── 01_eda.sql              # Khám phá & chẩn đoán dữ liệu: null, duplicate, outlier, range
-│   ├── 02_cleaning.sql         # Chuẩn hóa & làm sạch: TRIM, CAST, COALESCE
-│   └── 03_analysis.sql         # EDA tổng hợp, VIEW: customer_order_summary, vw_rfm_churn, vw_cohort_retention
+│   ├── 01_eda.sql              # Data exploration & diagnosis: null, duplicate, outlier, range checks
+│   ├── 02_cleaning.sql         # Standardization & cleaning: TRIM, CAST, COALESCE
+│   └── 03_analysis.sql         # Consolidated EDA, VIEWs: customer_order_summary, vw_rfm_churn, vw_cohort_retention
 ├── reports/
 │   └── E-Commerce_Sales_Customer_Analytics.pdf
 ├── visuals/
-│   └── [screenshots từng trang dashboard]
+│   └── [dashboard page screenshots]
 └── README.md
 ```
 
@@ -57,34 +57,34 @@ ecommerce-customer-analytics/
 
 ```
 Raw Data
-└── Online Shop 2024 — Kaggle (8 bảng, 44 cột)
+└── Online Shop 2024 — Kaggle (8 tables, 44 columns)
         │
         ▼
 [01_eda.sql]
-    Kiểm tra NULL, duplicate email, orphan orders
-    Kiểm tra giá trị bất thường (payment âm, rating ngoài 1–5)
-    Xác nhận range ngày dữ liệu → xác định churn cutoff
-    Summary tổng hợp vấn đề toàn bộ bảng
+    Check for NULLs, duplicate emails, orphan orders
+    Check for abnormal values (negative payment amounts, ratings outside 1–5)
+    Confirm date range of data and define churn cutoff
+    Full issue summary across all tables
         │
         ▼
 [02_cleaning.sql]
-    TRIM khoảng trắng: customers, products
-    CAST kiểu dữ liệu: price → DECIMAL, quantity → UNSIGNED
-    COALESCE xử lý NULL: phone_number → 'Unknown', supplier_id → 0
-    Chuẩn hóa transaction_status: TRIM + UPPER
+    TRIM whitespace: customers, products
+    CAST data types: price to DECIMAL, quantity to UNSIGNED
+    COALESCE to handle NULLs: phone_number set to 'Unknown', supplier_id set to 0
+    Standardize transaction_status: TRIM combined with UPPER
         │
         ▼
 [03_analysis.sql]
-    EDA tổng hợp: doanh thu theo tháng, top sản phẩm, phân bố payment, rating theo category
-    VIEW customer_order_summary  → base metrics per customer (frequency, monetary, recency, churn)
-    VIEW vw_rfm_churn            → RFM score (NTILE 4) + 7 phân khúc
-    VIEW vw_cohort_retention     → monthly cohort × retention rate
+    Consolidated EDA: monthly revenue, top products, payment distribution, rating by category
+    VIEW customer_order_summary  → base metrics per customer (frequency, monetary, recency, activity status)
+    VIEW vw_rfm_churn            → RFM score (NTILE 4) combined with 7 customer segments
+    VIEW vw_cohort_retention     → monthly cohort matrix with retention rate
         │
         ▼
 Power BI
-    Import 3 VIEWs từ MySQL
-    Xây dựng DAX measures: Approval Rate, YoY, Churn %
-    Dashboard 6 trang: Summary · Overview · Customer Behavior · RFM & Retention · Product Performance · Operations
+    Import 3 VIEWs from MySQL
+    Build DAX measures: Approval Rate, YoY, Churn %
+    6-page dashboard: Summary, Overview, Customer Behavior, RFM & Retention, Product Performance, Operations
         │
         ▼
 Insights & Recommendations
@@ -94,17 +94,17 @@ Insights & Recommendations
 
 ## 6. Data Model & Schema
 
-**Nguồn:** [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) — Kaggle, License: Apache 2.0
+**Source:** [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) on Kaggle, License: Apache 2.0
 
-| Bảng | Mô tả | Số dòng (ước tính) |
+| Table | Description | Estimated Rows |
 |---|---|---|
-| `customers` | Thông tin khách hàng | ~10.000 |
-| `orders` | Đơn hàng | ~15.000 |
-| `order_items` | Chi tiết sản phẩm trong từng đơn | ~94.000 units |
-| `products` | Danh mục và thông tin sản phẩm | ~2.000 |
-| `payment` | Giao dịch thanh toán theo đơn | ~15.000 |
-| `shipments` | Trạng thái và thời gian giao hàng | ~15.000 |
-| `reviews` | Đánh giá sản phẩm từ khách hàng | ~1.000 |
+| `customers` | Customer information | ~10,000 |
+| `orders` | Orders | ~15,000 |
+| `order_items` | Product details within each order | ~94,000 units |
+| `products` | Product catalog and information | ~2,000 |
+| `payment` | Payment transactions per order | ~15,000 |
+| `shipments` | Shipment status and timing | ~15,000 |
+| `reviews` | Customer product reviews | ~1,000 |
 
 **Key joins:**
 - `orders → payment` (order_id)
@@ -129,42 +129,42 @@ customers ──< reviews >── products
 ## 8. Analysis & Metrics
 
 ### Churn Definition
-- **Churned:** Không có đơn hàng trong **90 ngày** tính từ ngày đặt hàng gần nhất
-- **Active:** Có đơn hàng trong vòng 90 ngày gần nhất (so với `MAX(order_date)` toàn hệ thống)
-- *Lý do chọn 90 ngày: ngưỡng phổ biến với e-commerce đa danh mục; chi tiết xem phần Assumptions*
+- **Churned:** No order placed within **90 days** from the most recent order date
+- **Active:** At least one order placed within the last 90 days, measured against `MAX(order_date)` across the entire system
+- *Rationale for the 90-day threshold: this is the common standard for multi-category e-commerce; see the Assumptions section for details*
 
 ### RFM Scoring
-- Dùng `NTILE(4)` để chia điểm 1–4 cho từng chiều **Recency / Frequency / Monetary**
-- Recency: điểm cao = mua gần nhất → `ORDER BY recency_days DESC`
-- Frequency & Monetary: điểm cao = nhiều/cao hơn → `ORDER BY ASC`
-- **7 phân khúc:** Champions · Loyal Customers · Potential Loyalists · New Customers · At Risk · Can't Lose Them · Hibernating
+- `NTILE(4)` is used to assign scores from 1 to 4 for each of the three dimensions: **Recency, Frequency, and Monetary**
+- Recency: higher score means more recent purchase, ordered by `recency_days DESC`
+- Frequency and Monetary: higher score means higher values, ordered `ASC`
+- **7 segments:** Highest-value customers (Champions), Repeat customers (Loyal Customers), Customers with loyalty potential (Potential Loyalists), First-time buyers (New Customers), Previously high-value customers showing disengagement (At Risk), High-spend inactive customers (Can't Lose Them), and Long-term inactive customers (Hibernating)
 
 ### Cohort Retention
-- Cohort xác định theo tháng đặt hàng đầu tiên: `DATE_FORMAT(MIN(order_date), '%Y-%m')`
-- `months_since_first` tính bằng `TIMESTAMPDIFF(MONTH, first_order_month, order_month)`
-- Retention rate = `active_customers / cohort_size × 100`
+- Cohorts are defined by the month of first order: `DATE_FORMAT(MIN(order_date), '%Y-%m')`
+- `months_since_first` is calculated using `TIMESTAMPDIFF(MONTH, first_order_month, order_month)`
+- Retention rate equals `active_customers / cohort_size × 100`
 
 ---
 
 ## 9. Key Insights
 
-### 1. Churn 65% — phần lớn khách hàng chỉ mua một hoặc hai lần
-Chỉ **34.8%** (3.480 khách) còn Active tại thời điểm phân tích. Phân phối số lần mua gần như chia đôi: ~5.000 người mua đúng 1 lần, ~5.000 người mua 2 lần — không có nhóm mua 3 lần trở lên đáng kể. Retention gần như không tồn tại sau lần mua thứ 2, cho thấy thiếu cơ chế giữ chân hệ thống chứ không phải vấn đề sản phẩm.
+### 1. 65% Churn Rate, as most customers purchase only once or twice
+Only **34.8%** (3,480 customers) remain active at the time of analysis. The purchase frequency distribution is nearly split in half: approximately 5,000 customers purchased exactly once and approximately 5,000 purchased twice, with no meaningful group purchasing three or more times. Retention effectively does not exist beyond the second purchase, pointing to an absence of systematic retention mechanisms rather than a product quality issue.
 
-### 2. $31M doanh thu đang "sống nhờ" nhóm khách hàng sắp rời đi
-**At Risk ($19.6M)** và **Hibernating ($11.6M)** chiếm ~73% tổng doanh thu, trong khi Champions — nhóm lý tưởng — chỉ đóng góp $4.6M (~11%). Doanh nghiệp đang phụ thuộc vào khách hàng đang dần biến mất thay vì nhóm gắn bó lâu dài. Đây là rủi ro tăng trưởng trực tiếp, không phải cảnh báo mang tính dự báo.
+### 2. $31M in revenue is dependent on customer groups that are already leaving
+**Previously high-value customers showing disengagement ($19.6M)** and **long-term inactive customers ($11.6M)** account for approximately 73% of total revenue, while highest-value customers (Champions), the most sustainable group, contribute only $4.6M (approximately 11%). The business is relying on customers who are gradually disappearing rather than on a loyal, durable base. This is a direct growth risk, not a forward-looking warning.
 
-### 3. Cohort Retention sụp đổ ngay tháng đầu tiên và không phục hồi
-Mọi cohort đều rơi từ 100% (Month 0) xuống **5–9%** từ tháng thứ 1, sau đó duy trì ổn định ở mức đó. Không cohort nào cải thiện theo thời gian — kể cả các cohort mới hơn. Điều này loại trừ nguyên nhân mùa vụ và chỉ ra vấn đề cơ cấu: không có onboarding flow, email remarketing, hay loyalty mechanism nào đủ hiệu quả để giữ khách sau lần mua đầu.
+### 3. Cohort retention collapses in the first month and does not recover
+Every cohort drops from 100% (Month 0) to **5–9%** by Month 1, then stabilizes at that level. No cohort improves over time, including more recent ones. This rules out seasonality as the cause and points to a structural problem: there is no onboarding flow, email remarketing, or loyalty mechanism effective enough to retain customers after their first purchase.
 
-### 4. Electronics dẫn đầu doanh thu nhưng có rating thấp nhất — tín hiệu churn ẩn
-Electronics đạt **$15.2M (36% doanh thu)** và 34K units bán ra — cao nhất tất cả danh mục. Tuy nhiên, rating trung bình của danh mục này thấp hơn đáng kể so với Home & Kitchen (Food Processor: 4.5 sao). Doanh thu cao + satisfaction thấp = nhóm khách hàng Electronics có nguy cơ không quay lại cao nhất.
+### 4. Electronics leads in revenue but has the lowest rating, indicating a hidden churn signal
+Electronics generates **$15.2M (36% of revenue)** and 34K units sold, the highest of all categories. However, the average rating for this category is notably lower than Home & Kitchen (Food Processor: 4.5 stars). High revenue combined with low satisfaction means Electronics customers carry the highest risk of not returning.
 
-### 5. Phễu thanh toán làm mất 20% doanh thu tiềm năng trước khi đơn được xử lý
-Trong 15.000 đơn tạo, chỉ **12.000 (~80%) hoàn thành thanh toán** — tức 3.000 đơn thất bại trước khi vào hệ thống xử lý. Sau thanh toán, 71.4% chuyển sang giao hàng và 35.8% giao thành công đến tay khách. Mỗi điểm rơi trong phễu này là doanh thu không được ghi nhận, chưa kể chi phí acquisition đã bỏ ra để có đơn đó.
+### 5. The payment funnel loses 20% of potential revenue before orders are processed
+Of the 15,000 orders created, only **12,000 (approximately 80%) completed payment**, meaning 3,000 orders failed before entering the fulfillment pipeline. After payment, 71.4% proceed to shipping and 35.8% are successfully delivered. Each drop-off point in this funnel represents unrecorded revenue, on top of the acquisition cost already spent to generate those orders.
 
-### 6. Top 20% khách hàng tạo ra 43% doanh thu — cao hơn dự kiến so với Pareto
-Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận nguyên tắc Pareto. Với nguồn lực chăm sóc khách hàng có hạn, tập trung vào nhóm này sẽ cho ROI cao hơn đáng kể so với chiến lược giữ chân đồng đều toàn bộ tệp.
+### 6. The top 20% of customers generate 43% of revenue, approaching the Pareto principle
+The top 20% ($18.4M) compared to the bottom 80% ($24.1M) gives a ratio of 43%, which is close to the Pareto principle. Given limited customer service resources, focusing on this group will yield a significantly higher return on investment than applying a uniform retention strategy across the entire customer base.
 
 ---
 
@@ -172,77 +172,77 @@ Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận 
 
 ### 🎯 Retention & Win-Back
 
-| Nhóm | Insight dẫn đến đề xuất | Hành động cụ thể | Ưu tiên |
+| Segment | Insight driving the recommendation | Specific action | Priority |
 |---|---|---|---|
-| **At Risk** (3.4K khách, $19.6M) | Recency cao nhưng lịch sử chi tiêu tốt — còn khả năng phục hồi nếu tiếp cận đúng thời điểm | Triển khai win-back email trong ngày 60–80 sau lần mua cuối, ưu đãi cá nhân hóa theo danh mục đã mua; ưu tiên sub-group monetary cao để tối đa ROI | 🔴 Cao nhất |
-| **Cohort Month 0→1 drop-off** | 90%+ khách rời đi sau lần mua đầu vì không có cơ chế giữ chân | Thiết kế onboarding flow: email cảm ơn + gợi ý sản phẩm liên quan + ưu đãi mua lần 2 trong 30 ngày đầu | 🔴 Cao |
-| **Hibernating** (4.1K khách, $11.6M) | Đã lâu không mua nhưng từng có giá trị — chi phí reactivation thấp hơn acquisition | Reactivation campaign: discount + social proof (trending products); giới hạn 2 lần tiếp cận, dừng nếu không phản hồi để tối ưu chi phí | 🟠 Cao |
-| **Champions** (817 khách, $4.6M) | Nhóm nhỏ nhưng LTV cao — chi phí giữ chân thấp hơn nhiều so với acquisition tương đương | Xây dựng loyalty tier: early access, free shipping, birthday offer | 🟡 Trung bình |
+| **Previously high-value customers showing disengagement** (3.4K customers, $19.6M) | Recency is high but spending history is strong, so recovery is still feasible with the right timing | Deploy win-back emails between days 60 and 80 after the last purchase, with personalized offers based on previously purchased categories; prioritize the high-monetary sub-group to maximize ROI | 🔴 Highest |
+| **Cohort Month 0 to Month 1 drop-off** | More than 90% of customers leave after the first purchase because there is no retention mechanism in place | Design an onboarding flow: thank-you email combined with related product suggestions and a second-purchase incentive within the first 30 days | 🔴 High |
+| **Long-term inactive customers** (4.1K customers, $11.6M) | Inactive for a long time but previously valuable, so reactivation cost is lower than acquiring equivalent new customers | Reactivation campaign with a discount combined with social proof (trending products); limit to 2 outreach attempts and stop if there is no response, to optimize cost | 🟠 High |
+| **Highest-value customers** (817 customers, $4.6M) | A small group but with high lifetime value, and retention cost is significantly lower than acquiring equivalent new customers | Build a loyalty tier with early access, free shipping, and a birthday offer | 🟡 Medium |
 
 ### ⚙️ Operational Improvement
 
-| Vấn đề | Nguyên nhân nghi ngờ | Hành động | Team |
+| Issue | Suspected cause | Action | Team |
 |---|---|---|---|
-| **20% failed payment** | Phương thức thanh toán không phù hợp hoặc lỗi UX tại checkout | Audit payment method có tỷ lệ fail cao nhất; thêm retry flow và alternative options (ví điện tử, BNPL) | Product / Payment |
-| **Electronics rating thấp** | Mô tả sản phẩm không khớp thực tế hoặc vấn đề đóng gói/vận chuyển | Review sản phẩm có rating ≤ 2.5: kiểm tra mô tả, hình ảnh, quy trình đóng gói | Category Management |
-| **Delivered rate 35.8%** | Có thể là data cutoff issue hoặc bottleneck thực tại khâu last-mile | Đối chiếu với warehouse logs; thiết lập SLA Shipped → Delivered theo khu vực | Logistics / Ops |
+| **20% failed payments** | Unsuitable payment methods or UX friction at checkout | Audit the payment methods with the highest failure rates; add a retry flow and alternative options such as e-wallets and BNPL | Product and Payment |
+| **Low Electronics rating** | Product descriptions do not match reality, or packaging and shipping issues | Review products with ratings of 2.5 or below: check descriptions, images, and packaging processes | Category Management |
+| **35.8% delivery completion rate** | Possibly a data cutoff issue or a real bottleneck in last-mile delivery | Cross-reference with warehouse logs; establish SLAs for Shipped to Delivered by region | Logistics and Operations |
 
 ---
 
 ## 11. Assumptions & Limitations
 
 **Assumptions:**
-- **Ngưỡng churn 90 ngày** là chuẩn phổ biến trong e-commerce đa danh mục. Tuy nhiên Electronics (chu kỳ mua dài) và FMCG (chu kỳ mua ngắn) có thể cần ngưỡng khác nhau — đây là điểm cần validate với business nếu phân tích sâu theo danh mục.
-- **Tháng 11/2024 là partial data** (chưa đủ 30 ngày tại thời điểm cắt) — cohort tháng này không dùng để kết luận xu hướng.
-- **RFM dùng NTILE(4)**: điểm phân vị theo phân phối thực tế của dataset, không phải ngưỡng tuyệt đối cố định — kết quả phân khúc có thể thay đổi nếu dataset được mở rộng.
+- **The 90-day churn threshold** is the common standard for multi-category e-commerce. However, Electronics (long purchase cycles) and FMCG (short purchase cycles) may each require a different threshold. This is a point that should be validated with the business if deeper category-level analysis is needed.
+- **November 2024 contains partial data** (fewer than 30 days available at the time of data extraction), so the cohort for that month is excluded from trend conclusions.
+- **RFM uses NTILE(4)**: scores are based on percentile distribution within the actual dataset rather than fixed absolute thresholds, so segment results may shift if the dataset is expanded.
 
 **Limitations:**
-- **Không có dữ liệu acquisition channel**: không thể xác định kênh nào (organic, paid, referral) mang lại khách hàng có LTV cao hơn — đây là missing piece quan trọng để đánh giá ROI marketing.
-- **Review count quá thấp**: ~1.000 reviews cho ~94.000 units sold (~1%) — rating trung bình theo danh mục có thể không đại diện cho mức độ hài lòng thực sự.
-- **Không có customer support data**: không thể liên kết trải nghiệm dịch vụ (ticket, complaint) với churn — bỏ sót một chiều phân tích có thể quan trọng.
-- **Không có industry benchmark**: các tỷ lệ churn, retention, RFM được đánh giá tương đối trong nội bộ dataset, không có cơ sở so sánh với thị trường.
+- **No acquisition channel data available**: it is not possible to determine which channel (organic, paid, or referral) brings in customers with higher lifetime value, which is an important missing piece for evaluating marketing ROI.
+- **Review count is very low**: approximately 1,000 reviews across roughly 94,000 units sold (approximately 1%), so average ratings by category may not accurately represent actual customer satisfaction.
+- **No customer support data available**: it is not possible to link service experience (tickets and complaints) to churn, which means one potentially important analytical dimension is missing.
+- **No industry benchmark available**: churn rates, retention rates, and RFM results are evaluated relative to this dataset only, without an external market reference for comparison.
 
 ---
 
 ## 12. Future Enhancements
 
-- [ ] **Customer Lifetime Value (CLV) prediction** — xây dựng model dự báo bằng Python (BG/NBD hoặc Pareto/NBD)
-- [ ] **Product affinity / basket analysis** — sản phẩm nào thường được mua cùng nhau → gợi ý cross-sell
-- [ ] **Churn prediction model** — phân tích theo đặc điểm: category, payment method, region
-- [ ] **A/B test framework** — thiết kế chuẩn để đo hiệu quả win-back và onboarding campaign
+- [ ] **Customer Lifetime Value (CLV) prediction**: build a predictive model in Python using BG/NBD or Pareto/NBD
+- [ ] **Product affinity and basket analysis**: identify which products are frequently purchased together to support cross-sell recommendations
+- [ ] **Churn prediction model**: analyze by customer characteristics including category, payment method, and region
+- [ ] **A/B test framework**: design a standardized structure to measure the effectiveness of win-back and onboarding campaigns
 
 ---
 
 ## 13. Deliverables
 
-- ✅ `queries/01_eda.sql` — Khám phá & chẩn đoán dữ liệu: null, duplicate, outlier, range check
-- ✅ `queries/02_cleaning.sql` — Chuẩn hóa & làm sạch: TRIM, CAST, COALESCE
-- ✅ `queries/03_analysis.sql` — EDA tổng hợp, VIEW RFM, Cohort Retention
-- 📎 Dataset gốc: [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) — Kaggle, License: Apache 2.0 | 8 bảng, 44 cột
-- ✅ Power BI Dashboard (6 trang): Summary · Overview · Customer Behavior · RFM & Retention · Product Performance · Operations
-- ✅ `reports/E-Commerce_Sales_Customer_Analytics.pdf` — Export dashboard
-- ✅ README với full insights & recommendations
+- ✅ `queries/01_eda.sql` — Data exploration & diagnosis: null, duplicate, outlier, and range checks
+- ✅ `queries/02_cleaning.sql` — Standardization & cleaning: TRIM, CAST, COALESCE
+- ✅ `queries/03_analysis.sql` — Consolidated EDA, RFM VIEW, Cohort Retention VIEW
+- 📎 Original dataset: [Online Shop 2024](https://www.kaggle.com/datasets/marthadimgba/online-shop-2024) on Kaggle, License: Apache 2.0, containing 8 tables and 44 columns
+- ✅ Power BI Dashboard (6 pages): Summary, Overview, Customer Behavior, RFM & Retention, Product Performance, Operations
+- ✅ `reports/E-Commerce_Sales_Customer_Analytics.pdf` — Dashboard export
+- ✅ README with full insights and recommendations
 
 ---
 
 ## 14. Dashboard Preview
 
-### Trang 1 — Summary
+### Page 1 — Summary
 ![Summary](visuals/summary_page.png)
 
-### Trang 2 — Overview
+### Page 2 — Overview
 ![Overview](visuals/overview_page.png)
 
-### Trang 3 — Customer Behavior
+### Page 3 — Customer Behavior
 ![Customer Behavior](visuals/customer_behavior_page.png)
 
-### Trang 4 — RFM & Retention
+### Page 4 — RFM & Retention
 ![RFM & Retention](visuals/rfm_retention_page.png)
 
-### Trang 5 — Product Performance
+### Page 5 — Product Performance
 ![Product Performance](visuals/product_performance_page.png)
 
-### Trang 6 — Operations
+### Page 6 — Operations
 ![Operations](visuals/operations_page.png)
 
 ---
@@ -256,4 +256,4 @@ Nhóm top 20% ($18.4M) so với bottom 80% ($24.1M): tỷ lệ 43% tiệm cận 
 
 ---
 
-*Case study phân tích dữ liệu thực chiến — SQL + Power BI cho bài toán Customer Analytics trong thương mại điện tử.*
+*A hands-on data analytics case study applying SQL and Power BI to customer analytics in e-commerce.*
